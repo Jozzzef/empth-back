@@ -10,10 +10,10 @@ const { Pool } = require('pg');
 const pool = new Pool(); //use env var: PGHOST = db | localhost (db is for production for the docker compose)
 
 //middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(cors());
-app.options('*', cors());
+
 
 // init table if it does not exist
 const create_table = " \
